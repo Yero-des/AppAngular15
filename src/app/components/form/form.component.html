@@ -1,0 +1,162 @@
+<form [formGroup]="profileForm" class="border border-radius rounded my-4 p-0 shadow overflow">
+
+  <!-- Titulo del formulario -->
+  <div class="bg-danger text-light p-3 mb-4 border-bottom border-3 border-dark">
+    <h2 class="text-center">Laboratorio 15</h2>
+  </div>
+
+  <!-- Inputs del formulario -->
+  <div class="row row-cols-3 m-4">
+    <div class="col mb-3 form-group">
+      <label for="Nombre" class="text-secondary">Nombre</label>
+      <input type="text" formControlName="nombre" class="form-control">
+    </div>
+    <div class="col mb-3 form-group">
+      <label for="Decimal" class="text-secondary">Decimal</label>
+      <input type="number" formControlName="decimal" class="form-control">
+    </div>
+    <div class="col mb-3 form-group">
+      <label for="Porcentaje" class="text-secondary">Porcentaje</label>
+      <input type="number" formControlName="porcentaje" class="form-control">
+    </div>
+    <div class="col mb-3 form-group">
+      <label for="Precio" class="text-secondary">Precio</label>
+      <input type="number" formControlName="precio" class="form-control">
+    </div>
+    <div class="col mb-3 form-group">
+      <label for="Fecha" class="text-secondary">Fecha</label>
+      <input type="datetime-local" formControlName="fecha" class="form-control">
+    </div>
+
+
+  </div>
+
+</form>
+
+<div
+  class="container border rounded shadow"
+>
+  <table
+    class="table"
+  >
+    <thead>
+      <tr>
+        <th>Value</th>
+        <th>Pipe</th>
+        <th>Salida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ profileForm.get('nombre')?.value }}</td>
+        <td>capitalizado:true</td>
+        <td>{{ profileForm.get('nombre')?.value | capitalizado:true }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('nombre')?.value }}</td>
+        <td>uppercase</td>
+        <td>{{ profileForm.get('nombre')?.value | uppercase }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('nombre')?.value }}</td>
+        <td>uppercase</td>
+        <td>{{ profileForm.get('nombre')?.value | uppercase }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('nombre')?.value }}</td>
+        <td>lowercase</td>
+        <td>{{ profileForm.get('nombre')?.value | lowercase }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('nombre')?.value }}</td>
+        <td>slice:2</td>
+        <td>{{ profileForm.get('nombre')?.value | slice:2 }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('nombre')?.value }}</td>
+        <td>slice:0:4</td>
+        <td>{{ profileForm.get('nombre')?.value | slice:0:4 }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('decimal')?.value }}</td>
+        <td>number:'3.0-0'</td>
+        <td>{{ profileForm.get('decimal')?.value | number:'3.0-0' }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('decimal')?.value }}</td>
+        <td>number:'.0-3'</td>
+        <td>{{ profileForm.get('decimal')?.value | number:'.0-3' }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('porcentaje')?.value }}</td>
+        <td>percent</td>
+        <td>{{ profileForm.get('porcentaje')?.value | percent }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('porcentaje')?.value }}</td>
+        <td>percent:'2.2-2'</td>
+        <td>{{ profileForm.get('porcentaje')?.value | percent:'2.2-2' }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('precio')?.value }}</td>
+        <td>currency</td>
+        <td>{{ profileForm.get('precio')?.value | currency }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('precio')?.value }}</td>
+        <td>currency:'PEN'</td>
+        <td>{{ profileForm.get('precio')?.value | currency:'PEN' }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('precio')?.value }}</td>
+        <td>currency:'CAD':'symbol-narrow':'.0-0'</td>
+        <td>{{ profileForm.get('precio')?.value | currency:'CAD':'symbol-narrow':'.0-0' }}</td>
+      </tr>
+      <tr>
+        <td>{{ valorPromesa }}</td>
+        <td>async</td>
+        <td>{{ valorPromesa | async }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('fecha')?.value }}</td>
+        <td>date</td>
+        <td>{{ profileForm.get('fecha')?.value | date }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('fecha')?.value }}</td>
+        <td>date:'fullDate'</td>
+        <td>{{ profileForm.get('fecha')?.value | date:'fullDate' }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('fecha')?.value }}</td>
+        <td>date:'medium'</td>
+        <td>{{ profileForm.get('fecha')?.value | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('fecha')?.value }}</td>
+        <td>date:'short'</td>
+        <td>{{ profileForm.get('fecha')?.value | date:'short' }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('fecha')?.value }}</td>
+        <td>date:'MMMM - dd'</td>
+        <td>{{ profileForm.get('fecha')?.value | date:'MMMM - dd' }}</td>
+      </tr>
+      <tr>
+        <td>{{ profileForm.get('fecha')?.value }}</td>
+        <td>date:'MMMM -dd':'':'{{idioma}}'</td>
+        <td>{{ profileForm.get('fecha')?.value | date:'MMMM -dd':'':idioma }}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <button (click)="idioma='es'" class="col-auto mx-3 btn btn-primary">Español</button>
+    <button (click)="idioma='en'" class="col-auto mx-3 btn btn-secondary">Inglés</button>
+    <button (click)="idioma='fr'" class="col-auto mx-3 btn btn-danger">Francés</button>
+  </div>
+</div>
+

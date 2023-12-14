@@ -1,0 +1,24 @@
+.overflow {
+  overflow: hidden;
+}
+
+.language-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.language-buttons button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #007bff;
+  background-color: #fff;
+  color: #007bff;
+  border-radius: 5px;
+}
+
+.language-buttons button.active {
+  background-color: #007bff;
+  color: #fff;
+}

@@ -1,0 +1,118 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+
+  </div>
+
+  <div class="mb-3">
+    <label for="numero" class="form-label">Número</label>
+    <input type="number" class="form-control" id="numero" formControlName="numero">
+  </div>
+
+  <div class="mb-3">
+    <label for="porcentaje" class="form-label">Porcentaje</label>
+    <input type="number" class="form-control" id="porcentaje" formControlName="porcentaje">
+  </div>
+
+  <div class="mb-3">
+    <label for="dinero" class="form-label">Dinero</label>
+    <input type="number" class="form-control" id="dinero" formControlName="dinero">
+  </div>
+
+  <div class="mb-3">
+    <label for="fecha" class="form-label">Fecha</label>
+    <input type="date" class="form-control" id="fecha" formControlName="fecha">
+  </div>
+
+  <div class="mb-3">
+    <label for="hora" class="form-label">Hora</label>
+    <input type="time" class="form-control" id="hora" formControlName="hora">
+  </div>
+
+  <div class="mb-3">
+    <label for="otroCampo" class="form-label">Otro Campo</label>
+    <input type="text" class="form-control" id="otroCampo" formControlName="otroCampo">
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" formControlName="email">
+  </div>
+
+  <!-- Add more fields as needed -->
+  <div class="mb-3">
+    <label for="direccion" class="form-label">Dirección</label>
+    <input type="text" class="form-control" id="direccion" formControlName="direccion">
+  </div>
+
+  <div class="mb-3">
+    <label for="telefono" class="form-label">Teléfono</label>
+    <input type="tel" class="form-control" id="telefono" formControlName="telefono">
+  </div>
+
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </div>
+</form>
+
+<!-- profile-editor.component.html -->
+<!-- Mostrar los valores del formulario en una tabla -->
+<div *ngIf="enviado">
+  <h3>Valores del Formulario</h3>
+
+  <table class="table table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">Campo</th>
+        <th scope="col">Variable</th>
+        <th scope="col">Pipe</th>
+        <th scope="col">Salida</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nombre</td>
+        <input type="number" class="form-control m-0" id="numero" formControlName="numero">
+        <td>capitalizado</td>
+        <td>{{ profileForm.value.nombre }}</td>
+      </tr>
+      <tr>
+        <td>Número</td>
+        <td>{{ profileForm.value.numero }}</td>
+      </tr>
+      <tr>
+        <td>Porcentaje</td>
+        <td>{{ profileForm.value.porcentaje }}</td>
+      </tr>
+      <tr>
+        <td>Dinero</td>
+        <td>{{ profileForm.value.dinero }}</td>
+      </tr>
+      <tr>
+        <td>Fecha</td>
+        <td>{{ profileForm.value.fecha | date }}</td>
+      </tr>
+      <tr>
+        <td>Hora</td>
+        <td>{{ profileForm.value.hora }}</td>
+      </tr>
+      <tr>
+        <td>Otro Campo</td>
+        <td>{{ profileForm.value.otroCampo }}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{ profileForm.value.email }}</td>
+      </tr>
+      <tr>
+        <td>Dirección</td>
+        <td>{{ profileForm.value.direccion }}</td>
+      </tr>
+      <tr>
+        <td>Teléfono</td>
+        <td>{{ profileForm.value.telefono }}</td>
+      </tr>
+      <!-- Agregar más filas para otros campos -->
+    </tbody>
+  </table>
+</div>
